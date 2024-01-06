@@ -1,19 +1,20 @@
 <template>
+  <h1>Calculadora en Vue</h1>
   <img alt="Vue logo" src="./assets/logo.png">
-  <Contador titulo="contador1" :valor='10'/>
-  <Contador titulo="contador2" v-bind:valor="calcularValor()" />
-  <Contador titulo="contador3"  />
+  
+  <Calculadora/>
+
 
 </template>
 
 <script>
 
-import Contador  from './components/Contador.vue'
+import Calculadora  from './components/Calculadora.vue'
 
 export default {
   name: 'App',
   components: {
-    Contador,
+    Calculadora,
   },
   methods:{
 
