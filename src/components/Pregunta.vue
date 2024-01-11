@@ -1,6 +1,7 @@
 <template>
-    <img src="https://yesno.wtf/assets/no/14-cb78bf7104f848794808d61b9cd83eba.gif" 
-    alt="No se puede visualizar">
+    <img  v-if="img"  
+     v-bind:src="img"
+        alt="No se puede visualizar">
 
     <div class="dark">
         
@@ -10,8 +11,12 @@
         <input v-model="pregunta" type="text">
         <p>Recuerda que debes termina con el signo de interrogación</p>
 
-        <h2>{{pregunta}}</h2>
-        <h2  >SI / NO</h2>
+
+        <div v-if="preguntaValida">
+            <h2>{{pregunta}}</h2>
+            <h2 >{{ respuesta }}</h2>
+        </div>
+        
     </div>
     
 
@@ -23,18 +28,22 @@ export default {
     data(){
         return{
             pregunta:'Voy a pasar el semestre',
+            respuesta:"",
+            img:null,
+            preguntaValida: false
             
         }
     },
     watch:{
         pregunta(value, oldValue){
-
+            this.preguntaValida=false;
             console.log(value);    
             console.log(oldValue);
 
             if(!value.includes('?')) return;
             //consumo Api
             this.consumirApi()
+            this.preguntaValida=true
 
         }
             
@@ -46,6 +55,8 @@ export default {
             
             console.log(answer)
             console.log(image)
+            this.respuesta = answer==='yes'?'SI!':'NO!';
+            this.img = image
             
         }
     }
