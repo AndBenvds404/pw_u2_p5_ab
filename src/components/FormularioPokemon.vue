@@ -68,6 +68,7 @@ export default {
     justify-content: center;
     align-items: center;
     text-align: left;
+    background: rgb(184, 178, 178);
 }
 
 p:before{ /*se renderiza antes de cargar la pagina*/
@@ -91,4 +92,6 @@ p input{
     pointer-events: none;
     
 }
+
+
 </style>

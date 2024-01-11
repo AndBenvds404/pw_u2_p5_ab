@@ -1,24 +1,23 @@
 <template>
   
-  <Pregunta />
+  <pokemon />
   
 
 </template>
 
 <script>
 
-import Pregunta  from './components/Pregunta.vue'
+
+import pokemon from './components/FormularioPokemon.vue'
 
 export default {
   name: 'App',
   components: {
-    Pregunta,
+    pokemon
   },
   methods:{
 
-    calcularValor(){
-      return 5+5*10;
-    }
+
   }
 }
 </script>
