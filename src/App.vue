@@ -1,6 +1,6 @@
 <template>
-  
-  <pokemon />
+  <h1>ADIVINA EL POKEMON</h1>
+  <pokemonPage />
   
 
 </template>
@@ -8,12 +8,12 @@
 <script>
 
 
-import pokemon from './components/FormularioPokemon.vue'
+import pokemonPage from './pages/PokemonPages.vue'
 
 export default {
   name: 'App',
   components: {
-    pokemon
+    pokemonPage
   },
   methods:{
 
