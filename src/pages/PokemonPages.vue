@@ -12,7 +12,7 @@ import PokemonOpciones from '../components/PokemonOpciones.vue'
 
 import obtenerIdPokemonsFachada from '../helpers/pokemonHelper'
 
-obtenerIdPokemonsFachada()
+
 
 export default {
     
@@ -21,6 +21,19 @@ export default {
         PokemonImageVue,
         PokemonOpciones
   },
+
+  mounted(){
+    console.log('mira como monto el componete :0');
+    this.cargaInicial()
+  }, 
+
+  methods:{
+    async cargaInicial(){
+        const arregloPokemons = await obtenerIdPokemonsFachada()
+        console.log('imprimo desde componente mounted');
+        console.log(arregloPokemons);
+    }
+  }
 
 }
 </script>
