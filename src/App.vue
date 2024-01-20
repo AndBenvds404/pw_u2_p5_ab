@@ -21,13 +21,13 @@
   
     </div>
 
-    <div v-if="mostrarPerdedor">
+    <div class="mensajePerdedor" v-if="mostrarPerdedor">
       <h1>has utilizado tus 5 intentos</h1>
       <h1>"El juego ha termindo, intentalo nuevamente</h1>
       <button @click="reiniciar">Reiniciar</button>
     </div>
 
-    <div v-if="mostrarGanador">
+    <div class="mensajeGanador"  v-if="mostrarGanador">
       <h1>Puntaje: {{ puntaje }}</h1>  
       <h1>Felicitaciones has ganado un premio de $10.000,00</h1>
       <button @click="reiniciar">Reiniciar</button>
@@ -137,18 +137,31 @@ export default {
   margin-top: 60px;
 }
 
-
+h1{
+  font-size: 57px;
+}
 .cuadros{
   display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 17px;
+    margin-left: 27PX;
 }
-
 button{
-    padding: 10px;
+  margin-top: 37px;
+    padding: 17px;
     width: 140px;
     font-size: 27px;
     border: solid 3px black;
 }
+
+.mensajePerdedor h1{
+  color: red;
+}
+
+.mensajeGanador h1{
+  color: blue;
+}
+
 </style>
 

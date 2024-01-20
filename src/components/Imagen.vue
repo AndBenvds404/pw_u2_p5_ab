@@ -35,14 +35,10 @@ export default {
    align-items: center;
    margin: 0px 37px
 }
-
-
 .img-caja{
     width: 200px;
     height: 300px;
 }
-
-
 label{
     font-size: 27px;
 }
