@@ -64,6 +64,7 @@ export default {
 }
 
 .container{
+    text-align: center;
     display: grid;
     justify-content: center;
     align-items: center;

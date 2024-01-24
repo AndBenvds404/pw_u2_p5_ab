@@ -1,12 +1,20 @@
 <template>
-  <h1 v-if="!pokemonGanador"> Espere por favor estamos cargando el Jueguito</h1>
-  <div v-else>
-    <div class="container">
-        <PokemonImageVue :pokemonId="pokemonGanador.id" :showPokemon="mostrarPokemon"></PokemonImageVue>
-        <PokemonOpciones v-on:seleccion="revisarClick($event)" :pokemons="pokemonsArray"></PokemonOpciones>
+
+  <div class="simple-linear ">
+      <h1 v-if="!pokemonGanador"> Espere por favor estamos cargando el Jueguito</h1>
+      <div v-else>
+        <div class="container">
+            <PokemonImageVue :pokemonId="pokemonGanador.id" :showPokemon="mostrarPokemon"></PokemonImageVue>
+            <PokemonOpciones v-on:seleccion="revisarClick($event)" :pokemons="pokemonsArray"></PokemonOpciones>
+            <h1 class="ganar" v-if="mostrarMensajeWin">Gansate</h1>
+            <h1 v-if="mostrarMensajeLose">Intenta de Nuevo</h1>
+            <button v-if="mostrarReiniciar" @click="reiniciar">Reiniciar</button>
+          </div>
+       
     </div>
+    
   </div>
-  <h1 v-if="mostrarMensajeWin">Gansate</h1>
+  
     
   
 </template>
@@ -31,7 +39,9 @@ export default {
       pokemonsArray:[],
       pokemonGanador: null,
       mostrarPokemon:false,
-      mostrarMensajeWin:false
+      mostrarMensajeWin:false,
+      mostrarMensajeLose:false,
+      mostrarReiniciar:false
     }
   },
 
@@ -87,7 +97,20 @@ export default {
       if(datoIdPokemon==this.pokemonGanador.id){
         this.mostrarPokemon = true
         this.mostrarMensajeWin = true
+        this.mostrarReiniciar=true
+        this.mostrarMensajeLose=false
+      }else{
+        this.mostrarMensajeLose=true
       }
+      
+    },
+
+    reiniciar(){
+      this.mostrarPokemon=false
+      this.cargaInicial()
+      this.mostrarMensajeWin=false
+      this.mostrarReiniciar=false
+      this.mostrarMensajeLose=false
     }
   },
 
@@ -97,10 +120,35 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+
 
 .container{
+  display: grid;
+  text-align: center;
+  
+
     
+}
+
+button {
+  border-radius: 15%; 
+  background: rgb(212, 92, 84);
+  color: rgb(0, 44, 44);
+  font-size: 37px;
+  padding: 10px;
+
+}
+
+button:hover{
+  background: rgb(219, 138, 138);
+}
+
+.ganar{
+  font-size: 34px;
+  color: #eafa0d; /* Color del texto */
+  text-shadow: 2px 2px 4px rgb(0, 0, 0);
 }
 
 </style>

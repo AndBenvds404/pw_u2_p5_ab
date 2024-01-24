@@ -34,6 +34,7 @@ li{
     width: 250px;
     margin-top: 17px;
     cursor: pointer;
+    padding: 7px 0px;
 }
 
 li:hover{
@@ -42,7 +43,16 @@ li:hover{
 
 .opcion-container{
     display: flex;
-    justify-content: center;
+    
+    
+    
+    padding: none;
+    
+}
+
+ul{
+    display: flexbox;
+    width: 280px;
 }
 
 </style>
